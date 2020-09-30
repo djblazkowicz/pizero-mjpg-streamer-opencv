@@ -1,0 +1,13 @@
+[Unit]
+Description=A server for streaming Motion-JPEG from a video capture device
+After=network.target
+
+[Service]
+#User=mjpg_streamer
+ExecStart=/home/pi/mjpg-streamer/mjpg-streamer-experimental/mjpg_streamer\
+-i "/home/pi/mjpg-streamer/mjpg-streamer-experimental/input_raspicam.so -x 640 -y 480 -fps 60 -quality 5 -ex sport"\
+-o "/home/pi/mjpg-streamer/mjpg-streamer-experimental/output_http.so\
+-w /home/pi/mjpg-streamer/mjpg-streamer-experimental/www"
+
+[Install]
+WantedBy=multi-user.target
